@@ -15,7 +15,12 @@ const formatDate = (date: Date): string => {
   return `${date.toLocaleTimeString('en-US', options)}, ${date.toLocaleDateString('en-US')}`; // prettier-ignore
 };
 
-const tasks = (() => {
+const tasks: {
+  addTask: (task: Task) => void;
+  deleteTask: (id: number) => void;
+  editTask: (id: number) => void;
+  checkCompletion: (id: number) => void;
+} = (() => {
   const tasks: Task[] = [];
 
   const addTask = (task: Task): void => {
